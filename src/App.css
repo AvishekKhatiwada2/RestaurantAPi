@@ -1,30 +1,95 @@
-.MainDiv{
+.MainDiv {
     /* background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%); */
     background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
     height: 500px;
-   
+
 }
-.HomeContent{
+
+.HomeContent {
     padding-top: 30px;
 }
-.HomeContent img{
+
+.HomeContent img {
     height: auto;
     max-width: 100px;
 }
-.FirstLetter{
-    font-family:cursive;
+
+.FirstLetter {
+    font-family: cursive;
     font-size: 65px;
     font-weight: 700;
 }
-.TitleName{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+.TitleName {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 35px;
     font-weight: 500;
     padding-top: 36px;
 }
-.TitleName1{
+
+.TitleName1 {
     padding-top: 15px;
 }
-.card-header{
+
+.card-header {
     font-weight: 600;
+}
+
+.navbar {
+    background-color: #048abb;
+}
+
+.navbar-brand {
+    font-size: x-large;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.navbar-brand:hover {
+    color: #ffffff;
+}
+
+#UserNameDropdown {
+    color: #ffffff;
+    margin-right: 4vw;
+}
+
+/* .dropdown-menu{
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+} */
+.main-panel {
+    padding: 5px 16px 5px 15px;
+    height: 30vw;
+    background-color: #fafafa;
+    box-shadow: 0 0px 15px -9px rgba(0, 0, 0, 0.56),
+        0 4px 0px 0px rgba(0, 0, 0, -0.88),
+        0 2px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.company-list-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
 }

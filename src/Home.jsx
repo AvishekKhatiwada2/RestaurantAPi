@@ -1,22 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 
-const Home = () => {
+const Home = ({ setLoggedUserame }) => {
     const [licenseId, setLicenseId] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [mytoken, setMytoken] = useState('');
+    let navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-       // console.log(licenseId, username, password);
         const body = JSON.stringify({
             licenseId,
             username,
             password
         });
-       // console.log(body);
         try {
             const response = await fetch('http://app.myswastikonline.com/api/Token/Login', {
                         method: 'POST',
@@ -26,43 +25,13 @@ const Home = () => {
             if (!response.ok) {
                 throw new Error(`API request failed with status ${resopnse.status}`);
             }
-
             const data = await response.json();
-           // console.log(data);
-            setMytoken(data);
-           // console.log(mytoken);
+            setMytoken(data.token);
+            setLoggedUserame(data.data[0].userName);
+            navigate("/Companies");
         } catch(err){
             console.log(err);
         }
-
-console.log(mytoken);
-        //     // console.log('Login Successful:', data);
-        //     setMytoken(data.token);
-        //     console.log(mytoken);
-        // }catch(error) {
-        //     console.error('Login Error:',error);
-        // }
-    //     console.log(LoginData);
-        // fetch('http://app.myswastikonline.com/api/Token/Login', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: body
-        // })
-        //     .then(res => {
-        //         // if(!res.ok){
-        //         //     throw error('Error Fetching Data! Check Connection.');
-        //         // }
-        //         // console.log(res);
-        //         return res.json();
-        //     })
-        //     .then(data => {
-        //         // console.log(data);
-        //         setToken(data.token);
-        //         console.log(token);
-        //     })
-        // // .catch(err => {
-        // //     alert(err.message);
-        // // })
     }
     return (
         <>
