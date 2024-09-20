@@ -3,9 +3,9 @@ import { useState } from "react";
 
 
 const Home = ({ setLoggedUserame }) => {
-    const [licenseId, setLicenseId] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [licenseId, setLicenseId] = useState('2622');
+    const [username, setUsername] = useState('hitechowner');
+    const [password, setPassword] = useState('123456');
     const [mytoken, setMytoken] = useState('');
     let navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const Home = ({ setLoggedUserame }) => {
                         body,
                     });
             if (!response.ok) {
-                throw new Error(`API request failed with status ${resopnse.status}`);
+                throw new Error(`API request failed with status ${response.status}`);
             }
             const data = await response.json();
             setMytoken(data.token);
