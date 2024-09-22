@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom';
 
-const Companies = ({ loggedUsername,setLoggedCompany,setcurrentFiscalyear }) => {
-    const username = loggedUsername;
+const Companies = ({ loggedUsername,setLoggedCompany,setcurrentFiscalyear,token }) => {
+    
     const [companyList, setCompanyList] = useState('');
+    // const [url, setUrl] = useState('');
     let navigate = useNavigate();
 
 
@@ -13,7 +14,7 @@ const Companies = ({ loggedUsername,setLoggedCompany,setcurrentFiscalyear }) => 
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTc1Njc4NDUsImlzcyI6IkhpdGVjaEFQSUF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSGl0ZWNoQVBJU2VydmljZVBvc3RNYW5DbGllbnQifQ.amJBJmY9Svb9bp97fbZfBZ0lAxwv0zeJtktSmc3FtqA'
+                'Authorization': `Bearer ${token}`
             }
         })
             .then(res => {
@@ -38,7 +39,6 @@ const Companies = ({ loggedUsername,setLoggedCompany,setcurrentFiscalyear }) => 
 
     return (
         <>
-            <Navbar username={username} />
             <div className="main-panel mt-3">
                 <div className="panel-heading pt-2 mb-0">
                     <b>Select Company</b>

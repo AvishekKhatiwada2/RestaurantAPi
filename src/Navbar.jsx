@@ -2,12 +2,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from './Sidebar';
 
-const Navbar = ({ username, loggedCompany, currentFiscalyear }) => {
+const Navbar = ({ myProps }) => {
+    const { loggedUsername,loggedCompany,currentFiscalyear,isOpen,setIsOpen } = myProps;
+
+    const handleSideber = () => {
+        setIsOpen(!isOpen)
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <button className="hamburger" type="button"><img src="/more.png" alt="hamburger" /></button>
+                    <button className="hamburger" type="button" onClick={handleSideber} ><img src="/more.png" alt="hamburger" /></button>
                     <div>
                         <Link className="navbar-brand" to="#">
                             <img src="./Restaurant.png" alt="icon" width="34" height="35" className="d-inline-block align-text-top" />
@@ -28,7 +34,7 @@ const Navbar = ({ username, loggedCompany, currentFiscalyear }) => {
                                 </li>) : <></>}
                                 <li className="nav-item dropdown">
                                     <Link className="nav-link dropdown-toggle" to="#" id="UserNameDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="dynamic">
-                                        {username}
+                                        {loggedUsername}
                                     </Link>
                                     <ul className="dropdown-menu">
                                         <li><Link className="dropdown-item" to="#">Action</Link></li>

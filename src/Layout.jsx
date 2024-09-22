@@ -3,17 +3,19 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 
-const Layout = () => {
+const Layout = ({loggedUsername,loggedCompany,currentFiscalyear}) => {
     const [isOpen, setIsOpen] = useState(true);
+    const myProps = { loggedUsername,loggedCompany,currentFiscalyear,isOpen,setIsOpen }
+    
     return (
         <>
-            <div className="wrapper align-items-stretch ">
-                {/* isOpen={isOpen} setisOpen={setIsOpen}  */}
-                <Navbar />
-                <div id="content" className="">
-                    {/* isOpen={isOpen} setIsOpen={setIsOpen}  */}
-                    <Sidebar />
-                    <Outlet />
+            <div>
+                <Navbar myProps={myProps}/>
+                <div id="content-body">
+                    <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
+                    <div className="content-data">
+                        <Outlet />
+                    </div>
                 </div>
             </div>
         </>

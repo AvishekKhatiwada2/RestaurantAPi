@@ -1,20 +1,20 @@
 import Navbar from './Navbar'
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import ProductTable from './ProductTable';
 
-const Dashboard = ({ loggedUsername,loggedCompany,currentFiscalyear }) => {
-    return ( 
+const ProductList = () => {
+
+    return (
         <>
             <div className="main-panel mt-3">
                 <div className="panel-heading pt-2 mb-0">
                     <b>Product Lists</b>
                 </div>
                 <hr />
-                <div className='panel-body'>
-                    Dashboard
-                </div>
+                <ProductTable />
             </div>
         </>
-     );
+    );
 }
- 
-export default Dashboard;
+
+export default ProductList;

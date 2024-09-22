@@ -2,11 +2,10 @@ import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 
-const Home = ({ setLoggedUserame }) => {
+const Home = ({ setLoggedUserame,setMytoken }) => {
     const [licenseId, setLicenseId] = useState('2622');
     const [username, setUsername] = useState('hitechowner');
     const [password, setPassword] = useState('123456');
-    const [mytoken, setMytoken] = useState('');
     let navigate = useNavigate();
 
     const handleLogin = async (e) => {
