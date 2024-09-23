@@ -22,7 +22,7 @@ const useFetch = (url) => {
                 return response.json()
             })
             .then(data => {
-                setData(data.data);
+                setData(data);
                 setLoading(false);
                 console.log(data);
             })
