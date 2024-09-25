@@ -37,6 +37,7 @@
 
 .navbar {
     background-color: #048abb;
+    /* #048abb; */
 }
 
 .navbar-brand {
@@ -174,6 +175,7 @@
     height: 100vh;
     /* background: #1d1919; #05759e;*/
     background-color: #ECF0EC;
+    /* background-color: #e4e7e4; */
     /* color: #fff; */
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -231,4 +233,18 @@
 .sidebarList{
     padding-top: 10px;
     padding-left: 10px;
+}
+.SearchBar {
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
 }
