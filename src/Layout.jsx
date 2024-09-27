@@ -3,9 +3,9 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 
-const Layout = ({loggedUsername,loggedCompany,currentFiscalyear}) => {
+const Layout = () => {
     const [isOpen, setIsOpen] = useState(true);
-    const myProps = { loggedUsername,loggedCompany,currentFiscalyear,isOpen,setIsOpen }
+    const myProps = { isOpen,setIsOpen }
     
     return (
         <>

@@ -53,25 +53,16 @@
 
 #UserNameDropdown {
     color: #ffffff;
-    margin-right: 4vw;
+    /* margin-right: 4vw; */
 }
 
-/* .dropdown-menu{
-    margin-top: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
+.dropdown-menu{
     display: none;
     float: left;
-    min-width: 160px;
+    /* min-width: 160px; */
+    width: 50px;
     padding: 5px 0;
-    margin: 2px 0 0;
     font-size: 14px;
-    text-align: left;
-    list-style: none;
     background-color: #fff;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
@@ -80,7 +71,15 @@
     border-radius: 4px;
     -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
     box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-} */
+}
+.dropdown-menu li p{
+    padding: 1px 5px;
+}
+.profile-pic img{
+    height: 25px;
+    border: 1.9px solid #fafafa;
+    border-radius: 35px;
+}
 .main-panel {
     padding: 5px 16px 5px 15px;
     background-color: #fafafa;
@@ -248,3 +247,33 @@
     appearance: none;
     border-radius: .25rem;
 }
+
+
+
+/* Profile Picture */
+/* .profile-pic{
+    display: inline-block;
+    vertical-align: middle;
+     width: 50px;
+     height: 50px;
+     overflow: hidden;
+    border-radius: 50%;
+ }
+ 
+ .profile-pic img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+ }
+ .profile-menu .dropdown-menu {
+   right: 0;
+   left: unset;
+ }
+ .profile-menu .fa-fw {
+   margin-right: 10px;
+ }
+ 
+ .toggle-change::after {
+   border-top: 0;
+   border-bottom: 0.3em solid;
+ } */

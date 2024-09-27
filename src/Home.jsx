@@ -1,11 +1,13 @@
 import { Link,useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { userNameContext } from "./context/context";
 
 
-const Home = ({ setLoggedUserame,setMytoken }) => {
+const Home = () => {
     const [licenseId, setLicenseId] = useState('2622');
     const [username, setUsername] = useState('hitechowner');
     const [password, setPassword] = useState('123456');
+    const mycontext = useContext(userNameContext);
     let navigate = useNavigate();
 
     const handleLogin = async (e) => {
@@ -25,8 +27,8 @@ const Home = ({ setLoggedUserame,setMytoken }) => {
                 throw new Error(`API request failed with status ${response.status}`);
             }
             const data = await response.json();
-            setMytoken(data.token);
-            setLoggedUserame(data.data[0].userName);
+            mycontext.setMytoken(data.token);
+            mycontext.setLoggedUserame(data.data[0].userName);
             navigate("/Companies");
         } catch(err){
             console.log(err);

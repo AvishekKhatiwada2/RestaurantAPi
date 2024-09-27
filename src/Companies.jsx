@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Navbar from './Navbar'
 import { useNavigate } from 'react-router-dom';
+import { userNameContext } from './context/context';
 
-const Companies = ({ loggedUsername,setLoggedCompany,setcurrentFiscalyear,token }) => {
+const Companies = () => {
     
     const [companyList, setCompanyList] = useState('');
-    // const [url, setUrl] = useState('');
+    const mycontext = useContext(userNameContext);
+    const token = mycontext.mytoken;
     let navigate = useNavigate();
 
 
@@ -25,15 +27,15 @@ const Companies = ({ loggedUsername,setLoggedCompany,setcurrentFiscalyear,token 
             }).then(response => {
                 setCompanyList(response.data);
                 console.log(response.data);
-                setLoggedCompany(response.data[0].companyName)
             }).catch(error => {
                 console.log(error.message);
             })
     }, []);
     
-    const handleCompanyClick = (companyName,fiscalYear) =>{
-        setLoggedCompany(companyName);
-        setcurrentFiscalyear(fiscalYear);
+    const handleCompanyClick = (companyName,fiscalYear,initial) =>{
+        mycontext.setLoggedCompany(companyName);
+        mycontext.setcurrentFiscalyear(fiscalYear);
+        mycontext.setInitial(initial);
         navigate('/Dashboard');
     }
 
@@ -56,7 +58,7 @@ const Companies = ({ loggedUsername,setLoggedCompany,setcurrentFiscalyear,token 
                             {companyList?.length > 0 ? (
                                 companyList && companyList.map((company, i) => (
                                     <tr key={i}>
-                                        <td onClick={() => handleCompanyClick(company.companyName,company.fiscalYear)}>{company.companyName}</td>
+                                        <td onClick={() => handleCompanyClick(company.companyName,company.fiscalYear,company.initial)}>{company.companyName}</td>
                                         <td>{company.fiscalYear}</td>
                                     </tr>
                                 ))

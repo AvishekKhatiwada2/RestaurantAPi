@@ -1,13 +1,41 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import Sidebar from './Sidebar';
+import { Button, Dropdown, Space } from "antd";
+import { userNameContext } from "./context/context";
 
 const Navbar = ({ myProps }) => {
-    const { loggedUsername,loggedCompany,currentFiscalyear,isOpen,setIsOpen } = myProps;
+    const { isOpen, setIsOpen } = myProps;
+    const userContext = useContext(userNameContext)
 
     const handleSideber = () => {
         setIsOpen(!isOpen)
     }
+    // const items: MenuProps['items'] = [
+    //     {
+    //       key: '1',
+    //       label: (
+    //         <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+    //           1st menu item
+    //         </a>
+    //       ),
+    //     },
+    //     {
+    //       key: '2',
+    //       label: (
+    //         <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+    //           2nd menu item
+    //         </a>
+    //       ),
+    //     },
+    //     {
+    //       key: '3',
+    //       label: (
+    //         <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+    //           3rd menu item
+    //         </a>
+    //       ),
+    //     },
+    //   ];
 
     return (
         <>
@@ -26,13 +54,33 @@ const Navbar = ({ myProps }) => {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarScroll">
                             <ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
-                                {loggedCompany ? (<li className="nav-item">
+                                {userContext.loggedCompany ? (<li className="nav-item">
                                     <div className="d-flex flex-column navCompanyName">
-                                        <span>{loggedCompany}</span>
-                                        <span>KK990001 {currentFiscalyear}</span>
+                                        <span>{userContext.loggedCompany}</span>
+                                        <span>{userContext.initial} {userContext.currentFiscalyear}</span>
                                     </div>
                                 </li>) : <></>}
+                            </ul>
+                            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
                                 <li className="nav-item dropdown">
+                                    {/* <Link className="nav-link dropdown-toggle" id="UserNameDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div className="profile-pic">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="user" />
+                                        </div>
+                                    </Link> */}
+                                    <Dropdown menu={{ items }} placement="bottomRight" arrow={{ pointAtCenter: true }}>
+                                        <Button>bottomRight</Button>
+                                    </Dropdown>
+                                    <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><p>{userContext.loggedUsername}</p></li>
+                                        <li><p>Account</p></li>
+                                        <li><p>Settings</p></li>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <li><p>Log Out</p></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            {/* <li className="nav-item dropdown">
                                     <Link className="nav-link dropdown-toggle" to="#" id="UserNameDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="dynamic">
                                         {loggedUsername}
                                     </Link>
@@ -42,8 +90,8 @@ const Navbar = ({ myProps }) => {
                                         <li><hr className="dropdown-divider" /></li>
                                         <li><Link className="dropdown-item" to="#">Something else here</Link></li>
                                     </ul>
-                                </li>
-                            </ul>
+                                </li> */}
+
                         </div>
                     </div>
                 </div>
